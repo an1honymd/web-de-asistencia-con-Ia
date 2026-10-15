@@ -7,6 +7,7 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 function mostrarNotificacion(mensaje) {
+    const GEMINI_MODEL = "gemini-3.5-flash-lite";
     const notificacion = $("#notificacion");
 
     notificacion.textContent = mensaje;
