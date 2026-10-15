@@ -1,0 +1,1040 @@
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+:root {
+    --fondo: #f5f6fc;
+    --panel: #ffffff;
+    --texto: #20243a;
+    --texto-secundario: #7a8098;
+    --borde: #e9eaf3;
+    --primario: #6854e8;
+    --primario-hover: #5340d0;
+    --sombra: 0 8px 25px rgba(40, 40, 90, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    transition: background 0.3s, color 0.3s;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primario);
+    outline-offset: 3px;
+}
+
+.aplicacion {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   BARRA LATERAL
+========================= */
+
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    background: var(--panel);
+    border-right: 1px solid var(--borde);
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    padding: 0 7px;
+}
+
+.logo-icono {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #7965f5, #5140ce);
+    color: white;
+    border-radius: 14px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo h2 {
+    font-size: 22px;
+    color: var(--primario);
+}
+
+.logo span {
+    font-size: 11px;
+    color: var(--texto-secundario);
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 10px;
+    border-radius: 14px;
+    background: var(--fondo);
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: #e6e0ff;
+    border-radius: 13px;
+    font-size: 22px;
+}
+
+.perfil h3 {
+    font-size: 14px;
+}
+
+.perfil p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: var(--texto-secundario);
+    border-radius: 12px;
+    text-align: left;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.menu-item span {
+    font-size: 19px;
+}
+
+.menu-item:hover {
+    background: var(--fondo);
+    color: var(--primario);
+}
+
+.menu-item.activo {
+    background: #eeeaff;
+    color: var(--primario);
+    font-weight: 600;
+}
+
+.sidebar-inferior {
+    margin-top: auto;
+    padding: 20px 8px 0;
+    color: var(--texto-secundario);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+.contenido {
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.encabezado h1 {
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+.encabezado p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+.btn-tema {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--borde);
+    background: var(--panel);
+    border-radius: 13px;
+    font-size: 19px;
+}
+
+.vista {
+    display: none;
+}
+
+.vista.activa {
+    display: block;
+}
+
+
+/* =========================
+   BIENVENIDA
+========================= */
+
+.bienvenida {
+    background: linear-gradient(120deg, #6d58ed, #8975ff);
+    color: white;
+    border-radius: 22px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.etiqueta {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+}
+
+.bienvenida h2 {
+    font-size: 29px;
+    margin: 15px 0;
+}
+
+.bienvenida p {
+    max-width: 480px;
+    line-height: 1.7;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 23px;
+}
+
+.bienvenida-icono {
+    font-size: 100px;
+    opacity: 0.9;
+    padding: 0 20px;
+}
+
+.btn-principal {
+    background: var(--primario);
+    color: white;
+    border: none;
+    border-radius: 11px;
+    padding: 13px 19px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.bienvenida .btn-principal {
+    background: white;
+    color: #5b48d9;
+}
+
+.btn-principal:hover {
+    background: var(--primario-hover);
+    color: white;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   ESTADÍSTICAS
+========================= */
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 27px 0 35px;
+}
+
+.tarjeta-estadistica {
+    padding: 23px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 17px;
+    box-shadow: var(--sombra);
+}
+
+.estadistica-icono {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 20px;
+    margin-bottom: 17px;
+}
+
+.morado {
+    background: #eeeaff;
+}
+
+.verde {
+    background: #e0f8eb;
+}
+
+.naranja {
+    background: #fff0df;
+}
+
+.azul {
+    background: #e2efff;
+}
+
+.tarjeta-estadistica p {
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 8px;
+}
+
+.tarjeta-estadistica h2 {
+    font-size: 28px;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.seccion {
+    margin-bottom: 35px;
+}
+
+.seccion-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.seccion-titulo h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.seccion-titulo p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.accesos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tarjeta-acceso {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 17px;
+    padding: 23px;
+    text-align: left;
+    color: var(--texto);
+    transition: 0.2s;
+}
+
+.tarjeta-acceso:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra);
+    border-color: #c7bfff;
+}
+
+.acceso-icono {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    background: #eeeaff;
+    border-radius: 14px;
+    font-size: 23px;
+    margin-bottom: 17px;
+}
+
+.tarjeta-acceso h3 {
+    font-size: 15px;
+    margin-bottom: 9px;
+}
+
+.tarjeta-acceso p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--texto-secundario);
+    padding-right: 5px;
+}
+
+.flecha {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: var(--primario);
+    font-size: 20px;
+}
+
+.btn-secundario {
+    padding: 10px 15px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    color: var(--primario);
+    border-radius: 9px;
+}
+
+
+/* =========================
+   TAREAS
+========================= */
+
+.lista-tareas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tarea {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 13px;
+    padding: 16px;
+}
+
+.check-tarea {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primario);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.tarea-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tarea-info h3 {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    margin-bottom: 6px;
+}
+
+.tarea-info p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.tarea.completada .tarea-info h3 {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.etiqueta-prioridad {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.prioridad-Alta {
+    background: #ffe5e5;
+    color: #d63838;
+}
+
+.prioridad-Media {
+    background: #fff0d9;
+    color: #a86708;
+}
+
+.prioridad-Baja {
+    background: #dcf8e7;
+    color: #20864b;
+}
+
+.btn-eliminar {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.vacio {
+    text-align: center;
+    padding: 35px 15px;
+    background: var(--panel);
+    border: 1px dashed var(--borde);
+    border-radius: 14px;
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+.panel-blanco {
+    padding: 27px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 19px;
+    box-shadow: var(--sombra);
+}
+
+.form-tarea {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+    margin: 25px 0;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    min-width: 0;
+    height: 45px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 0 12px;
+    background: var(--panel);
+    color: var(--texto);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro {
+    padding: 9px 15px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    color: var(--texto-secundario);
+}
+
+.filtro.activo {
+    background: #eeeaff;
+    color: var(--primario);
+    border-color: #d8d0ff;
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.tarjeta-chat {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.chat-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 22px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.chat-avatar {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    border-radius: 15px;
+    background: #eeeaff;
+    font-size: 25px;
+}
+
+.chat-encabezado h2 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.chat-encabezado p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.punto-verde {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #28c76f;
+    margin-right: 5px;
+}
+
+.mensajes {
+    height: 370px;
+    overflow-y: auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mensaje {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.mensaje.usuario {
+    flex-direction: row-reverse;
+}
+
+.mensaje-avatar {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: var(--fondo);
+    border-radius: 11px;
+}
+
+.burbuja {
+    max-width: 80%;
+    padding: 15px;
+    border-radius: 14px;
+    background: var(--fondo);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.burbuja strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.burbuja p + p {
+    margin-top: 8px;
+}
+
+.usuario .burbuja {
+    background: var(--primario);
+    color: white;
+}
+
+.sugerencias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 0 23px 20px;
+}
+
+.sugerencia {
+    padding: 9px 12px;
+    background: var(--panel);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+.sugerencia:hover {
+    border-color: var(--primario);
+    color: var(--primario);
+}
+
+.form-chat {
+    display: flex;
+    gap: 10px;
+    padding: 18px 22px;
+    border-top: 1px solid var(--borde);
+}
+
+.form-chat input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    background: var(--panel);
+    color: var(--texto);
+}
+
+.form-chat button {
+    width: 49px;
+    min-width: 49px;
+    border: none;
+    border-radius: 11px;
+    background: var(--primario);
+    color: white;
+    font-size: 22px;
+}
+
+.nota-chat {
+    text-align: center;
+    font-size: 11px;
+    color: var(--texto-secundario);
+    padding: 0 15px 17px;
+}
+
+
+/* =========================
+   GENERADOR DE IDEAS
+========================= */
+
+.form-ideas {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.resultado-ideas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+    margin-top: 25px;
+}
+
+.ideas-vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 15px;
+    background: var(--fondo);
+    border-radius: 15px;
+}
+
+.ideas-vacio span {
+    font-size: 45px;
+}
+
+.ideas-vacio h3 {
+    margin: 15px 0 9px;
+}
+
+.ideas-vacio p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.idea-card {
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+    padding: 22px;
+    background: var(--panel);
+}
+
+.idea-card .idea-icono {
+    font-size: 28px;
+    margin-bottom: 13px;
+}
+
+.idea-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.idea-card p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.idea-card .idea-nivel {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 10px;
+    background: #eeeaff;
+    color: var(--primario);
+    border-radius: 8px;
+    font-size: 11px;
+}
+
+
+/* =========================
+   NOTIFICACIONES Y PIE
+========================= */
+
+.notificacion {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #24243a;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: 0.25s;
+    z-index: 1000;
+    font-size: 13px;
+    max-width: calc(100vw - 40px);
+}
+
+.notificacion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pie {
+    text-align: center;
+    padding: 30px 10px 10px;
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+
+/* =========================
+   MODO OSCURO
+========================= */
+
+body.oscuro {
+    --fondo: #171827;
+    --panel: #222438;
+    --texto: #f0f0fa;
+    --texto-secundario: #a4a7c0;
+    --borde: #34364e;
+    --primario: #8b7aff;
+    --primario-hover: #a093ff;
+    --sombra: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+body.oscuro .menu-item.activo,
+body.oscuro .filtro.activo,
+body.oscuro .acceso-icono,
+body.oscuro .chat-avatar {
+    background: #383052;
+    color: #c4baff;
+}
+
+body.oscuro .bienvenida .btn-principal {
+    background: #ffffff;
+    color: #5140ce;
+}
+
+body.oscuro .ideas-vacio {
+    background: #292b41;
+}
+
+
+/* =========================
+   DISEÑO RESPONSIVO
+========================= */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .contenido {
+        padding: 25px;
+    }
+
+    .estadisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-tarea {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-tarea .btn-principal {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .aplicacion {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid var(--borde);
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .perfil,
+    .sidebar-inferior {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 7px;
+    }
+
+    .menu-item {
+        width: auto;
+        min-width: max-content;
+        padding: 11px;
+        font-size: 12px;
+    }
+
+    .menu-item span {
+        font-size: 15px;
+    }
+
+    .contenido {
+        padding: 20px 15px;
+    }
+
+    .encabezado h1 {
+        font-size: 22px;
+    }
+
+    .bienvenida {
+        padding: 25px;
+    }
+
+    .bienvenida h2 {
+        font-size: 23px;
+    }
+
+    .bienvenida-icono {
+        display: none;
+    }
+
+    .estadisticas {
+        gap: 10px;
+    }
+
+    .tarjeta-estadistica {
+        padding: 16px;
+    }
+
+    .tarjeta-estadistica h2 {
+        font-size: 24px;
+    }
+
+    .accesos {
+        grid-template-columns: 1fr;
+    }
+
+    .form-tarea,
+    .form-ideas {
+        grid-template-columns: 1fr;
+    }
+
+    .form-tarea .btn-principal {
+        grid-column: auto;
+    }
+
+    .panel-blanco {
+        padding: 18px;
+    }
+
+    .resultado-ideas {
+        grid-template-columns: 1fr;
+    }
+
+    .mensajes {
+        height: 350px;
+        padding: 15px;
+    }
+
+    .burbuja {
+        max-width: 90%;
+    }
+
+    .sugerencias {
+        padding: 0 15px 15px;
+    }
+
+    .form-chat {
+        padding: 13px;
+    }
+
+    .tarea {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .menu-item {
+        padding: 9px;
+        font-size: 11px;
+    }
+
+    .estadisticas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bienvenida {
+        padding: 20px;
+    }
+
+    .bienvenida h2 {
+        font-size: 21px;
+    }
+}
+

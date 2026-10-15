@@ -1,0 +1,472 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyAI | Asistente Inteligente</title>
+
+    <link rel="stylesheet" href="web_asistencia.css">
+</head>
+
+<body>
+
+    <div class="aplicacion">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icono">S</div>
+                <div>
+                    <h2>AcademiaIA</h2>
+                    <span>Asistente inteligente</span>
+                </div>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar">🎓</div>
+                <div>
+                    <h3>Estudiante</h3>
+                    <p>Panel académico</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+
+                <button class="menu-item activo" data-vista="inicio">
+                    <span>🏠</span> Inicio
+                </button>
+
+                <button class="menu-item" data-vista="asistente">
+                    <span>🤖</span> Asistente IA
+                </button>
+
+                <button class="menu-item" data-vista="tareas">
+                    <span>📝</span> Mis tareas
+                </button>
+
+                <button class="menu-item" data-vista="ideas">
+                    <span>💡</span> Generador de ideas
+                </button>
+
+            </nav>
+
+            <div class="sidebar-inferior">
+                <p>StudyAI v1.0</p>
+                <p>Aprende de forma inteligente</p>
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <header class="encabezado">
+
+                <div>
+                    <h1 id="tituloPagina">Panel principal</h1>
+                    <p>Tu espacio para aprender y organizarte.</p>
+                </div>
+
+                <button id="btnTema" class="btn-tema"
+                        aria-label="Cambiar tema">
+                    🌙
+                </button>
+
+            </header>
+
+
+            <!-- VISTA INICIO -->
+            <section id="vista-inicio" class="vista activa">
+
+                <div class="bienvenida">
+                    <div>
+                        <span class="etiqueta">TU ASISTENTE ACADÉMICO</span>
+
+                        <h2>¡Hola, estudiante! 👋</h2>
+
+                        <p>
+                            Organiza tus actividades, resuelve tus dudas
+                            y descubre nuevas ideas para tus proyectos.
+                        </p>
+
+                        <button class="btn-principal"
+                                data-ir="asistente">
+                            🤖 Consultar asistente
+                        </button>
+                    </div>
+
+                    <div class="bienvenida-icono">🧠</div>
+                </div>
+
+
+                <!-- ESTADÍSTICAS -->
+                <div class="estadisticas">
+
+                    <article class="tarjeta-estadistica">
+                        <div class="estadistica-icono morado">📋</div>
+                        <p>Total de tareas</p>
+                        <h2 id="totalTareas">0</h2>
+                    </article>
+
+                    <article class="tarjeta-estadistica">
+                        <div class="estadistica-icono verde">✅</div>
+                        <p>Completadas</p>
+                        <h2 id="tareasCompletadas">0</h2>
+                    </article>
+
+                    <article class="tarjeta-estadistica">
+                        <div class="estadistica-icono naranja">⏳</div>
+                        <p>Pendientes</p>
+                        <h2 id="tareasPendientes">0</h2>
+                    </article>
+
+                    <article class="tarjeta-estadistica">
+                        <div class="estadistica-icono azul">📈</div>
+                        <p>Progreso</p>
+                        <h2 id="progreso">0%</h2>
+                    </article>
+
+                </div>
+
+
+                <!-- ACCESOS RÁPIDOS -->
+                <div class="seccion">
+
+                    <div class="seccion-titulo">
+                        <div>
+                            <h2>Accesos rápidos</h2>
+                            <p>Continúa con tus actividades.</p>
+                        </div>
+                    </div>
+
+                    <div class="accesos">
+
+                        <button class="tarjeta-acceso"
+                                data-ir="asistente">
+                            <span class="acceso-icono">🤖</span>
+                            <h3>Asistente IA</h3>
+                            <p>Consulta tus dudas académicas.</p>
+                            <span class="flecha">→</span>
+                        </button>
+
+                        <button class="tarjeta-acceso"
+                                data-ir="tareas">
+                            <span class="acceso-icono">📝</span>
+                            <h3>Mis tareas</h3>
+                            <p>Organiza tus trabajos pendientes.</p>
+                            <span class="flecha">→</span>
+                        </button>
+
+                        <button class="tarjeta-acceso"
+                                data-ir="ideas">
+                            <span class="acceso-icono">💡</span>
+                            <h3>Generar ideas</h3>
+                            <p>Encuentra inspiración para proyectos.</p>
+                            <span class="flecha">→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TAREAS RECIENTES -->
+                <div class="seccion">
+
+                    <div class="seccion-titulo">
+                        <div>
+                            <h2>Tareas recientes</h2>
+                            <p>Un resumen de tus actividades.</p>
+                        </div>
+
+                        <button class="btn-secundario"
+                                data-ir="tareas">
+                            Ver todas
+                        </button>
+                    </div>
+
+                    <div id="tareasRecientes" class="lista-tareas">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VISTA ASISTENTE -->
+            <section id="vista-asistente" class="vista">
+
+                <div class="tarjeta-chat">
+
+                    <div class="chat-encabezado">
+                        <div class="chat-avatar">🤖</div>
+
+                        <div>
+                            <h2>StudyAI Assistant</h2>
+                            <p>
+                                <span class="punto-verde"></span>
+                                Asistente de demostración
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div id="mensajes" class="mensajes">
+
+                        <div class="mensaje asistente">
+                            <div class="mensaje-avatar">🤖</div>
+
+                            <div class="burbuja">
+                                <strong>¡Hola! 👋</strong>
+
+                                <p>
+                                    Soy StudyAI. Puedo ayudarte con
+                                    preguntas académicas sencillas,
+                                    programación y proyectos.
+                                </p>
+
+                                <p>
+                                    ¿Qué te gustaría aprender hoy?
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="sugerencias">
+                        <button class="sugerencia"
+                                data-pregunta="Explícame qué es HTML">
+                            🌐 ¿Qué es HTML?
+                        </button>
+
+                        <button class="sugerencia"
+                                data-pregunta="Dame una idea para un proyecto web">
+                            💡 Ideas de proyectos
+                        </button>
+
+                        <button class="sugerencia"
+                                data-pregunta="¿Cómo funciona JavaScript?">
+                            💻 JavaScript
+                        </button>
+                    </div>
+
+
+                    <form id="formChat" class="form-chat">
+
+                        <input
+                            type="text"
+                            id="entradaChat"
+                            placeholder="Escribe tu pregunta..."
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button type="submit" id="btnEnviar"
+                                aria-label="Enviar mensaje">
+                            ➤
+                        </button>
+
+                    </form>
+
+                    <p class="nota-chat">
+                        Versión demostrativa: las respuestas son programadas,
+                        no generadas por una IA externa.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- VISTA TAREAS -->
+            <section id="vista-tareas" class="vista">
+
+                <div class="panel-blanco">
+
+                    <div class="seccion-titulo">
+                        <div>
+                            <h2>Administrador de tareas</h2>
+                            <p>Organiza tus actividades universitarias.</p>
+                        </div>
+                    </div>
+
+
+                    <form id="formTarea" class="form-tarea">
+
+                        <div class="campo">
+                            <label for="nombreTarea">Nombre de la tarea</label>
+
+                            <input
+                                type="text"
+                                id="nombreTarea"
+                                placeholder="Ej. Proyecto de programación"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="fechaTarea">Fecha límite</label>
+
+                            <input
+                                type="date"
+                                id="fechaTarea"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="prioridadTarea">Prioridad</label>
+
+                            <select id="prioridadTarea">
+                                <option value="Baja">Baja</option>
+                                <option value="Media" selected>Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-principal">
+                            + Agregar tarea
+                        </button>
+
+                    </form>
+
+
+                    <div class="filtros">
+
+                        <button class="filtro activo"
+                                data-filtro="Todas">
+                            Todas
+                        </button>
+
+                        <button class="filtro"
+                                data-filtro="Pendientes">
+                            Pendientes
+                        </button>
+
+                        <button class="filtro"
+                                data-filtro="Completadas">
+                            Completadas
+                        </button>
+
+                    </div>
+
+
+                    <div id="listaTareas" class="lista-tareas">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VISTA GENERADOR DE IDEAS -->
+            <section id="vista-ideas" class="vista">
+
+                <div class="panel-blanco">
+
+                    <div class="seccion-titulo">
+                        <div>
+                            <h2>Generador de ideas 💡</h2>
+
+                            <p>
+                                Encuentra inspiración para tu próximo
+                                proyecto académico.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <form id="formIdeas" class="form-ideas">
+
+                        <div class="campo">
+                            <label for="categoriaIdea">
+                                Área del proyecto
+                            </label>
+
+                            <select id="categoriaIdea">
+
+                                <option value="web">Desarrollo web</option>
+
+                                <option value="android">
+                                    Aplicaciones Android
+                                </option>
+
+                                <option value="ia">
+                                    Inteligencia artificial
+                                </option>
+
+                                <option value="electronica">
+                                    Electrónica y Arduino
+                                </option>
+
+                                <option value="datos">
+                                    Bases de datos
+                                </option>
+
+                                <option value="educacion">
+                                    Educación
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="nivelIdea">
+                                Nivel de dificultad
+                            </label>
+
+                            <select id="nivelIdea">
+                                <option value="facil">Fácil</option>
+                                <option value="medio">Intermedio</option>
+                                <option value="avanzado">Avanzado</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-principal">
+                            ✨ Generar ideas
+                        </button>
+
+                    </form>
+
+
+                    <div id="resultadoIdeas" class="resultado-ideas">
+
+                        <div class="ideas-vacio">
+                            <span>💡</span>
+                            <h3>¡Tu próxima idea comienza aquí!</h3>
+
+                            <p>
+                                Selecciona un área y genera propuestas
+                                para tu próximo proyecto.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer class="pie">
+                <p>StudyAI © 2026 | Proyecto educativo con asistencia de IA</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="web_asistencia.js"></script>
+
+</body>
+</html>
+```
